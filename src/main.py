@@ -1,16 +1,18 @@
-from ArgParser import parser
+from MyParser import args
 from LocationFetcher import LocationFetcher
 from OutputWriter import OutputWriter
+from utils import combine_list_and_file
 
+# get all places to be processed
+places = combine_list_and_file(args.places, args.file)
 
-# everything we need from command line arguments is in the parser
-args = parser.parse_args()
+# create an output writer object
+writer = OutputWriter(args.output)
 
 # create a fetcher object (using geoNames API)
 fetcher = LocationFetcher(args.username)
 
-# for each place in the list, get the location information
-locations = { place: fetcher.get(place) for place in args.places }
-
-# write results
-OutputWriter.process(locations, args.output)
+# for each place in the list, get the location information and write it
+for place in places:
+    location = fetcher.get(place)
+    writer.process(place, location)
