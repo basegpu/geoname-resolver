@@ -28,9 +28,9 @@ class OutputWriter():
         # write the results to a file
         with open(self._file, 'a') as f:
             if location:
-                f.writelines(f'{key}; {location}')
+                f.write(f'{key}; {location}\n')
             else:
-                f.writelines(f'{key}; NOT FOUND.')
+                f.write(f'{key}; NOT FOUND\n')
     
     def process(self, key: str, location: Any | None) -> None:
         self._write(key, location)

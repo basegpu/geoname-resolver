@@ -11,13 +11,26 @@
             "module": "main",
             "args": [
                 "--username",
-                "rost",
+                "${input:username}",
                 "--places",
-                "Burgdorf"
+                "${input:places}"
             ],
             "env":{
                 "PYTHONPATH": "src"
             }
+        }
+    ],
+    "inputs": [
+        {
+            "id": "username",
+            "type": "promptString",
+            "description": "Enter GeoNames username"
+        },
+        {
+            "id": "places",
+            "type": "promptString",
+            "description": "Enter places (separated by empty space)",
+            "default": "Burgdorf"
         }
     ]
 }
