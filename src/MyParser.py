@@ -3,8 +3,6 @@ import sys
 from colorama import Fore, Style
 from logging import Logger
 
-from OutputWriter import OutputWriter
-
 logger = Logger(__name__)
 
 class MyParser(argparse.ArgumentParser):
@@ -24,4 +22,4 @@ parser.add_argument('--output', metavar='o', type=str, help='file to write the o
 args = parser.parse_args()
 
 if args.file is None and args.places is None:
-    parser.error('Either define places with --places or provide a file with --file')
+    parser.error('Either define places with --places, provide a file with --file, or both.')
