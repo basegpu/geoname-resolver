@@ -15,6 +15,7 @@ class MyParser(argparse.ArgumentParser):
 
 parser = MyParser(description=Style.BRIGHT + 'Lookup geographical places.' + Style.RESET_ALL)
 parser.add_argument('--username', metavar='U', type=str, required=True, help='GeoNames username')
+parser.add_argument('--nrows', metavar='N', type=int, required=False, default=1, help='define maxRows')
 parser.add_argument('--places', metavar='P', type=str, nargs='+', help='places to be processed')
 parser.add_argument('--file', metavar='f', type=Path, help='file to read places from')
 parser.add_argument('--output', metavar='o', type=Path, help='file to write the output, otherwise it will be printed to the console (default)')

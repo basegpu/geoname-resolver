@@ -10,7 +10,7 @@ places = combine_list_and_file(args.places, args.file)
 writer = OutputWriter(args.output)
 
 # create a fetcher object (using geoNames API)
-fetcher = LocationFetcher(args.username)
+fetcher = LocationFetcher(args.username, args.nrows)
 
 # for each place in the list, get the location information and write it
 for place in places:
