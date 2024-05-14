@@ -22,7 +22,7 @@ class OutputWriter():
         # print the results to the console
         if locations:
             for location in locations:
-                print(Fore.GREEN + f'{key:<24}: {location}' + Fore.RESET)
+                print(Fore.GREEN + f'{key:<24}: {location} ({location.raw["geonameId"]})' + Fore.RESET)
         else:
             print(Fore.RED + f'{key:<24}: NOT FOUND' + Fore.RESET)
     

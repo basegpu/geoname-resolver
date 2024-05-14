@@ -13,7 +13,9 @@
                 "--username",
                 "${input:username}",
                 "--places",
-                "${input:places}"
+                "${input:places}",
+                "--nrows",
+                "${input:nrows}"
             ],
             "env":{
                 "PYTHONPATH": "src"
@@ -31,6 +33,12 @@
             "type": "promptString",
             "description": "Enter places (separated by empty space)",
             "default": "Burgdorf"
+        },
+        {
+            "id": "nrows",
+            "type": "promptString",
+            "description": "Enter maxRows for result fetchin",
+            "default": 1
         }
     ]
 }
