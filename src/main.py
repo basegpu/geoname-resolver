@@ -14,5 +14,5 @@ fetcher = LocationFetcher(args.username, args.nrows)
 
 # for each place in the list, get the location information and write it
 for place in places:
-    location = fetcher.get(place)
-    writer.process(place, location)
+    locations = fetcher.get(place)
+    writer.process(place, locations)

@@ -1,5 +1,6 @@
 from pathlib import Path
 from typing import Any, Callable
+from geopy.location import Location
 
 from colorama import Fore
 
@@ -17,20 +18,22 @@ class OutputWriter():
         else:
             self._write = self._write_to_console
     
-    def _write_to_console(self, key: str, location: Any | None) -> None:
+    def _write_to_console(self, key: str, locations: list[Location]) -> None:
         # print the results to the console
-        if location:
-            print(Fore.GREEN + f'{key:<24}: {location}' + Fore.RESET)
+        if locations:
+            for location in locations:
+                print(Fore.GREEN + f'{key:<24}: {location}' + Fore.RESET)
         else:
             print(Fore.RED + f'{key:<24}: NOT FOUND' + Fore.RESET)
     
-    def _write_to_file(self, key: str, location: Any | None) -> None:
+    def _write_to_file(self, key: str, locations: list[Location]) -> None:
         # write the results to a file
         with open(self._file, 'a') as f:
-            if location:
-                f.write(f'{key}; {location}\n')
+            if locations:
+                for location in locations:
+                    f.write(f'{key}; {location}\n')
             else:
                 f.write(f'{key}; NOT FOUND\n')
     
-    def process(self, key: str, location: Any | None) -> None:
-        self._write(key, location)
+    def process(self, key: str, locations: list[Location]) -> None:
+        self._write(key, locations)
