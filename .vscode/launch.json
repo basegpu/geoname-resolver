@@ -38,7 +38,7 @@
             "id": "nrows",
             "type": "promptString",
             "description": "Enter maxRows for result fetchin",
-            "default": 1
+            "default": "1"
         }
     ]
 }
