@@ -31,7 +31,7 @@ class OutputWriter():
         with open(self._file, 'a') as f:
             if locations:
                 for location in locations:
-                    f.write(f'{key}; {location} ({location.raw["geonameId"]})'\n')
+                    f.write(f'{key}; {location} ({location.raw["geonameId"]})\n')
             else:
                 f.write(f'{key}; NOT FOUND\n')
     
